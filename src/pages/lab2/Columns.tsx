@@ -1,14 +1,14 @@
-import { Table } from "antd";
+import { Table, Tag, Button, Space } from "antd";
 
-interface Student {
+interface User {
   key: number;
   id: number;
   name: string;
-  age: number;
-  major: string;
+  email: string;
+  status: string;
 }
 
-export default function Dashboard() {
+export default function UserTable() {
 
   const columns = [
     {
@@ -20,43 +20,45 @@ export default function Dashboard() {
       dataIndex: "name",
     },
     {
-      title: "Age",
-      dataIndex: "age",
+      title: "Email",
+      dataIndex: "email",
     },
     {
-      title: "Major",
-      dataIndex: "major",
+      title: "Status",
+      dataIndex: "status",
+      render: (status: string) => (
+        <Tag color={status === "active" ? "green" : "red"}>
+          {status}
+        </Tag>
+      ),
+    },
+    {
+      title: "Action",
+      render: () => (
+        <Space>
+          <Button type="primary">Edit</Button>
+          <Button danger>Delete</Button>
+        </Space>
+      ),
     },
   ];
 
-  const data: Student[] = [
+  const data: User[] = [
     {
       key: 1,
       id: 1,
       name: "Nguyen Van A",
-      age: 20,
-      major: "Information Technology",
+      email: "a@gmail.com",
+      status: "active",
     },
     {
       key: 2,
       id: 2,
       name: "Tran Van B",
-      age: 21,
-      major: "Business",
-    },
-    {
-      key: 3,
-      id: 3,
-      name: "Le Van C",
-      age: 22,
-      major: "Design",
+      email: "b@gmail.com",
+      status: "inactive",
     },
   ];
 
-  return (
-    <div style={{ padding: 20 }}>
-      <h2>Student List</h2>
-      <Table columns={columns} dataSource={data} />
-    </div>
-  );
+  return <Table columns={columns} dataSource={data} />;
 }
