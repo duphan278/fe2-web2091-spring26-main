@@ -4,7 +4,7 @@ import { Button } from "antd";
 import { Layout } from "antd";
 import { Routes, Route } from "react-router-dom";
 import Register from "./pages/lab1/Register.tsx";
-import Dashboard from "./pages/lab1/Trangchu.tsx";
+import Columns from "./pages/lab2/columns.tsx";
 
 
 
@@ -21,7 +21,7 @@ function App() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="#" className="hover:text-gray-200">
+            <Link to="/" className="hover:text-gray-200">
               Trang chủ
             </Link>
             <Link to="/list" className="hover:text-gray-200">
@@ -51,7 +51,7 @@ function App() {
     
   
       <Routes>
-        <Route path="/" element={<Dashboard></Dashboard>}></Route>
+        <Route path="/" element={<Columns></Columns>}></Route>
         {/* <Route path="/add" element={<Add></Add>}></Route>
         <Route path="/edit/:id" element={<Edit></Edit>}></Route>
         <Route path="/login" element={<Login></Login>}></Route> */}
