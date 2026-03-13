@@ -5,6 +5,8 @@ import { Layout } from "antd";
 import { Routes, Route } from "react-router-dom";
 import Register from "./pages/lab1/Register.tsx";
 import Columns from "./pages/lab2/columns.tsx";
+import Form from "./pages/lab3/Form.tsx";
+
 
 
 
@@ -24,7 +26,7 @@ function App() {
             <Link to="/" className="hover:text-gray-200">
               Trang chủ
             </Link>
-            <Link to="/list" className="hover:text-gray-200">
+            <Link to="/form" className="hover:text-gray-200">
               Danh sách
             </Link>
             <Link to="/add" className="hover:text-gray-200">
@@ -52,9 +54,9 @@ function App() {
   
       <Routes>
         <Route path="/" element={<Columns></Columns>}></Route>
-        {/* <Route path="/add" element={<Add></Add>}></Route>
-        <Route path="/edit/:id" element={<Edit></Edit>}></Route>
-        <Route path="/login" element={<Login></Login>}></Route> */}
+         <Route path="/form" element={<Form></Form>}></Route>
+        {/* <Route path="/edit/:id" element={<Edit></Edit>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>  */}
         <Route path="/register" element={<Register></Register>}></Route>
       </Routes>
       <Toaster />
